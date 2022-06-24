@@ -1,0 +1,9 @@
+Options -Multiviews
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+RewriteRule ^([a-zA-Z0-9-/]+)$ getOutstandingBill.php?studentId=$1 
+RewriteRule ^([a-zA-Z0-9-/]+)$ confirmPayment.php?studentId=$1 
